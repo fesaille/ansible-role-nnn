@@ -16,3 +16,6 @@
     - name: Confirm installed version is correct
       shell: echo "{{ git_nnn_latest.tag }}" | grep -F "$(nnn -V)"
       failed_when: false
+
+  roles:
+    - role: geerlingguy.git
