@@ -3,8 +3,9 @@
   hosts: all
 
   pre_tasks:
-    - name: Update apt cache
-      apt: update_cache=true cache_valid_time=600
+    - name: Update apt cache (Debian)
+      apt: 
+        update_cache: yes
       when: ansible_os_family == 'Debian'
 
   tasks:
@@ -17,5 +18,3 @@
       shell: echo "{{ git_nnn_latest.tag }}" | grep -F "$(nnn -V)"
       failed_when: false
 
-  roles:
-    - role: geerlingguy.git
