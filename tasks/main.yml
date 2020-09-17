@@ -17,23 +17,20 @@
     action: latest_release
   register: git_nnn_latest
 
-- name: Create temporary directory
-  tempfile:
-    state: directory
-  register: nnn_src_dir
-
 - name: Get nnn latest release
   git:
     repo: "{{ nnn_git_url }}"
-    dest: "{{ nnn_src_dir.path }}"
+    dest: "{{ nnn_src_dir }}"
     version: "{{ git_nnn_latest.tag }}"
+  register: git_log
 
 - name: Build nnn
   make:
-    chdir: "{{ nnn_src_dir.path }}"
+    chdir: "{{ nnn_src_dir }}"
 
 - name: Install nnn
   make:
-    chdir: "{{ nnn_src_dir.path }}"
+    chdir: "{{ nnn_src_dir }}"
     target: install
   become: yes
+  changed_when: false

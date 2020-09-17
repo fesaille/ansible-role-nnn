@@ -8,6 +8,7 @@
       apt:
         update_cache: yes
       when: ansible_os_family == 'Debian'
+      changed_when: false
 
   tasks:
     - name: Include ansible-role-nnn
@@ -17,7 +18,9 @@
   post_tasks:
     - name: Confirm installed version is correct
       shell: echo "{{ git_nnn_latest.tag }}" | grep -F "$(nnn -V)"
-      failed_when: false
+      register: nnn_version_check
+      failed_when: nnn_version_check.rc != 0
+      changed_when: false
 
   roles:
     - role: geerlingguy.git
