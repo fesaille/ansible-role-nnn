@@ -4,7 +4,7 @@
 
 This role installs [nnn](https://github.com/jarun/nnn) on Debian/Ubuntu Linux system.
 ```terminal
-ansible-galaxy install fesaille.ansible_role_nnn
+ansible-galaxy install fesaille.nnn
 ```
 
 ## Requirements
@@ -25,7 +25,7 @@ This role installs the latest tagged version from git, no variable at the moment
 
     - hosts: servers
       roles:
-         - { role: fesaille.ansible_role_nnn }
+         - { role: fesaille.nnn }
 
 ## License
 
