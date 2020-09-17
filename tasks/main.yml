@@ -1,0 +1,39 @@
+---
+# tasks file for ansible-role-nnn
+#
+# Setup tasks.
+- include_tasks: "setup-{{ ansible_os_family | lower }}.yml"
+
+- name: Install github3.py
+  pip:
+    name:
+      - github3.py
+    state: present
+
+- name: Get latest release tag
+  github_release:
+    user: jarun
+    repo: nnn
+    action: latest_release
+  register: git_nnn_latest
+
+- name: Create temporary directory
+  tempfile:
+    state: directory
+  register: nnn_src_dir
+
+- name: Get nnn latest release
+  git:
+    repo: "{{ nnn_git_url }}"
+    dest: "{{ nnn_src_dir.path }}"
+    version: "{{ git_nnn_latest.tag }}"
+
+- name: Build nnn
+  make:
+    chdir: "{{ nnn_src_dir.path }}"
+
+- name: Install nnn
+  make:
+    chdir: "{{ nnn_src_dir.path }}"
+    target: install
+  become: yes

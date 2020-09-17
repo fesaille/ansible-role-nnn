@@ -1,0 +1,8 @@
+- name: Install nnn dependencies (Debian)
+  apt:
+    name:
+      - libreadline-dev
+      - pkg-config
+      - python3-pip
+      - python3-setuptools
+    state: present

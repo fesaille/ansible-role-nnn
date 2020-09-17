@@ -1,0 +1,18 @@
+---
+- name: Converge
+  hosts: all
+
+  pre_tasks:
+    - name: Update apt cache
+      apt: update_cache=true cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+
+  tasks:
+    - name: Include ansible-role-nnn
+      include_role:
+        name: "ansible-role-nnn"
+
+  post_tasks:
+    - name: Confirm installed version is correct
+      shell: echo "{{ git_nnn_latest.tag }}" | grep -F "$(nnn -V)"
+      failed_when: false
