@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: nnn
   author: Emmanuel Roux
   description: Install nnn on Debian/Ubuntu systems
   license: BSD
