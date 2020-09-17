@@ -1,5 +1,6 @@
 # Ansible Role: nnn
 
+![Travis CI](https://api.travis-ci.org/fesaille/ansible-role-nnn.svg?branch=master)
 This role installs [nnn](https://github.com/jarun/nnn) on Debian/Ubuntu Linux system.
 
 
