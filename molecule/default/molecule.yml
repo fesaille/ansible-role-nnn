@@ -6,8 +6,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: ubuntu-20.04-ansible-role-nnn
-    image: ubuntu:20.04
+  - name: "nnn-${image:-ubuntu}-${tag:-latest}"
+    image: "${image:-ubuntu}:${tag:-latest}"
 provisioner:
   name: ansible
   log: true

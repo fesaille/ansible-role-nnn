@@ -6,6 +6,11 @@ python:
 language: python
 services:
   - docker
+env:
+  jobs:
+    - image="ubuntu" tag="latest"
+    - image="ubuntu" tag="bionic"
+    - image="ubuntu" tag="xenial"
 before_install:
   - sudo apt-get -qq update
 install:

@@ -1,9 +1,12 @@
 ---
-# defaults file for ansible-role-nnn
-# ://github.com/jarun/nnn/releases/download/v3.1/nnn_3.1-1_ubuntu18.04.amd64.deb 
+# defaults file for nnn
+
 # nnn_release_tag=$(git ls-remote --tags https://github.com/jarun/nnn.git | sed -nE 's#.*refs/tags/(v?[0-9]+(\.[0-9]+)*)$#\1#p' | sort -Vr | head -n 1)
+
+# nnn git repository
+nnn_git_url: https://github.com/jarun/nnn.git
 
 # nnn_release_archive="https://github.com/jarun/nnn/releases/download/${nnn_release_tag}/nnn-${nnn_release_tag}.tar.gz"
 
+# The temporary directory in which git will pull nnn source
 nnn_src_dir: /tmp/src/nnn
-nnn_git_url: https://github.com/jarun/nnn.git
