@@ -6,3 +6,10 @@
       - python3-pip
       - python3-setuptools
     state: present
+
+- name: Install nnn dependencies (Debian)
+  apt:
+    name:
+      -  libncursesw5-dev 
+    state: present
+  when: lookup('env','tag') == "bionic" or lookup('env','tag') == "xenial"
