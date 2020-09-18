@@ -24,4 +24,7 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install molecule docker
       - name: Test role
-        run: molecule converge 
+        run: molecule test 
+        env:
+          image: ubuntu
+          tag: latest
