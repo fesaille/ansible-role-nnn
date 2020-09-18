@@ -27,10 +27,6 @@ This role installs the latest tagged version from git, no variable at the moment
       roles:
          - { role: fesaille.nnn }
 
-## Linting
-
-Linting is included in a [`pre-hook`](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in git
-
 ## License
 
 MIT/BSD
