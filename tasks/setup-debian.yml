@@ -1,3 +1,4 @@
+---
 - name: Install nnn dependencies (Debian)
   apt:
     name:

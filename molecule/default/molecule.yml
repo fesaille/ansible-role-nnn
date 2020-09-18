@@ -11,5 +11,8 @@ platforms:
 provisioner:
   name: ansible
   log: true
+lint: |
+  set -e
+  yamllint .
 verifier:
   name: ansible
